@@ -1,6 +1,7 @@
 ## ATEM Camera Remote Control UE5
 This is a small program and Unreal Engine 5 plugin to control a virtual camera in UE5 trough the Camera Control Settings of an ATEM. While there is a small example blueprint included in the content folder of the UE5 plugin you probably still have to change what you want to change within a virtual camera using the given values in the node. 
 
+Get the latest release in the releases section!
 
 ### Usage
 
