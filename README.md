@@ -1,0 +1,2 @@
+- Open index.exe in atem connect folder
+- Use plugin in UE5

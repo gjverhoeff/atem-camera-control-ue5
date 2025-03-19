@@ -1,0 +1,28 @@
+{
+	"FileVersion": 3,
+	"Version": 7,
+	"VersionName": "0.1",
+	"FriendlyName": "ATEM Camera Control",
+	"Description": "Access Camera Control Data from an ATEM",
+	"Category": "Virtual Production",
+	"CreatedBy": "Sumatras Studios | Geert Verhoeff",
+	"CreatedByURL": "https://www.geertverhoeff.com",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "https://www.geertverhoeff.com/contact",
+	"EngineVersion": "5.5.0",
+	"CanContainContent": true,
+	"IsBetaVersion": true,
+	"IsExperimentalVersion": true,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "ATEMControlUE5",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64"
+			]
+		}
+	]
+}
