@@ -47,9 +47,9 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Blackmagic ATEM|Camera", meta = (DisplayName = "ATEM Connect Camera Control"))
 	static void BMCamera(const FString& Data,
-		float& kelvin, float& zoom, float& iris, float& saturation, float& contrast, float& pivot, float& hue, int& tint, int& filter, float& LumMix,
+		float& kelvin, float& iris, int& gainDb, float& saturation, float& contrast, float& pivot, float& hue, int& tint, int& filter, float& LumMix,
 		FVector4& gamma, FVector4& gain, FVector4& lift,
-		float& shutter, bool& program, bool& preview);
+		float& shutter);
 
 	static TSharedPtr<FJsonObject> DeserializeJson(const FString& Data);
 	

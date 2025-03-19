@@ -43,9 +43,9 @@ TSharedPtr<FJsonObject> UATEMControlUE5FunctionLibrary::DeserializeJson(const FS
 
 
 void UATEMControlUE5FunctionLibrary::BMCamera(const FString& Data,
-    float& kelvin, float& zoom, float& iris, float& saturation, float& contrast, float& pivot, float& hue, int& tint, int& filter, float& LumMix, 
+    float& kelvin, float& iris, int& gainDb, float& saturation, float& contrast, float& pivot, float& hue, int& tint, int& filter, float& LumMix,
     FVector4& gamma, FVector4& gain, FVector4& lift,
-    float& shutter, bool& program, bool& preview)
+    float& shutter)
 {
     // Deserialize JSON with error handling
     TSharedPtr<FJsonObject> jsonObject = DeserializeJson(Data);
@@ -59,10 +59,6 @@ void UATEMControlUE5FunctionLibrary::BMCamera(const FString& Data,
     if (!jsonObject->TryGetNumberField(TEXT("kelvin"), kelvin))
     {
         UE_LOG(LogTemp, Warning, TEXT("Missing 'kelvin' field in JSON payload"));
-    }
-    if (!jsonObject->TryGetNumberField(TEXT("zoom"), zoom))
-    {
-        UE_LOG(LogTemp, Warning, TEXT("Missing 'zoom' field in JSON payload"));
     }
     if (!jsonObject->TryGetNumberField(TEXT("iris"), iris))
     {
@@ -95,6 +91,10 @@ void UATEMControlUE5FunctionLibrary::BMCamera(const FString& Data,
     if (!jsonObject->TryGetNumberField(TEXT("filter"), filter))
     {
         UE_LOG(LogTemp, Warning, TEXT("Missing 'filter' field in JSON payload"));
+    }
+    if (!jsonObject->TryGetNumberField(TEXT("gaindb"), gainDb))
+    {
+        UE_LOG(LogTemp, Warning, TEXT("Missing 'gaindb' field in JSON payload"));
     }
     if (!jsonObject->TryGetNumberField(TEXT("lummix"), LumMix))
     {
@@ -161,13 +161,13 @@ void UATEMControlUE5FunctionLibrary::BMCamera(const FString& Data,
     }
     lift = FVector4(liftRed, liftGreen, liftBlue, liftWhite);
 
-    // Extract Program and Preview booleans
-    if (!jsonObject->TryGetBoolField(TEXT("program"), program))
-    {
-        UE_LOG(LogTemp, Warning, TEXT("Missing 'program' field in JSON payload"));
-    }
-    if (!jsonObject->TryGetBoolField(TEXT("preview"), preview))
-    {
-        UE_LOG(LogTemp, Warning, TEXT("Missing 'preview' field in JSON payload"));
-    }
+    //// Extract Program and Preview booleans
+    //if (!jsonObject->TryGetBoolField(TEXT("program"), program))
+    //{
+    //    UE_LOG(LogTemp, Warning, TEXT("Missing 'program' field in JSON payload"));
+    //}
+    //if (!jsonObject->TryGetBoolField(TEXT("preview"), preview))
+    //{
+    //    UE_LOG(LogTemp, Warning, TEXT("Missing 'preview' field in JSON payload"));
+    //}
 }
